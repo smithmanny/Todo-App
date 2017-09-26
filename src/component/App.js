@@ -40,7 +40,6 @@ class App extends Component {
               value={this.state.input}
               onChange={this.handleChange.bind(this)}
               type="text" />
-            <small>Press enter to submit new task</small>
           </form>
           <List items={this.state.items} />
       </div>

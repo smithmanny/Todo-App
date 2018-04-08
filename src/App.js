@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import List from './List';
-import '../styles/App.css';
+import List from './component/List/List';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      input: "",
+      input: '',
       items: []
     };
 
@@ -26,22 +25,25 @@ class App extends Component {
       input: '',
       items: [...this.state.items, this.state.input]
     });
-
   }
 
   render() {
     return (
-      <div className="container center-align">
+      <div className="wrapper">
         <h2>My Todo List</h2>
-          <form onSubmit={this.handleSubmit}>
-            <input
-              id="input"
-              placeholder="Add New Task"
-              value={this.state.input}
-              onChange={this.handleChange.bind(this)}
-              type="text" />
-          </form>
-          <List items={this.state.items} />
+        <form onSubmit={this.handleSubmit}>
+          <input
+            id="input"
+            placeholder="Add New Task"
+            value={this.state.input}
+            onChange={this.handleChange}
+            type="text"
+          />
+        </form>
+        {
+          this.state.items >= 0 && 'Enter a task'
+        }
+        <List items={this.state.items} />
       </div>
     );
   }
